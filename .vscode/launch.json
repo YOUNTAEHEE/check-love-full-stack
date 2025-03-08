@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "java",
+        "name": "LoveApplication",
+        "request": "launch",
+        "mainClass": "com.yth.love.LoveApplication",
+        "projectName": "love",
+        "args": "",
+        "envFile": "${workspaceFolder}/love/.env"
+      },
+      {
+        "type": "java",
+        "name": "Debug Spring Boot",
+        "request": "attach",
+        "hostName": "localhost",
+        "port": 5005,
+        "preLaunchTask": "Gradle bootRun with Debug",
+        "projectName": "love",
+        "sourcePaths": ["${workspaceFolder}/love/src/main/java"]
+      },
+      {
+        "type": "chrome",
+        "name": "Debug React Frontend",
+        "request": "launch",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}/check-love"
+      }
+    ],
+    "compounds": [
+      {
+        "name": "Full Stack Debug",
+        "configurations": ["Debug Spring Boot", "Debug React Frontend"]
+      }
+    ]
+  }
